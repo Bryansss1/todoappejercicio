@@ -43,7 +43,7 @@ const taskCategories=[
 ];
 
 
-db.sync({force:true})
+db.sync({force:false})
 .then(()=>{
     console.log("Iniciando con el sembradio malisioso")
     users.forEach((user)=>Users.create(user));//insertando 1 por 1

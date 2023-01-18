@@ -28,7 +28,7 @@ db.authenticate()
 
 initModels();
 //vamos a usar el metodo sync de nuestra db
-db.sync({force:false})
+db.sync({force:true})
 .then(()=>console.log("base de datos sincronizada"))
 .catch((error)=>console.error(error))
 
@@ -37,7 +37,7 @@ app.get("/",(req,res)=>{
 })
 
 app.listen(PORT,()=>{
-    console.log("Servidor conectando al puerto 2000")
+    console.log(`Servidor conectando al puerto ${PORT}`)
     
 })
 
