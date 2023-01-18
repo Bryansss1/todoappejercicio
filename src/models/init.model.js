@@ -17,7 +17,8 @@ Task.hasMany(Taskcategories,{as:"categorys",foreignKey:"task_id"})
 
 Taskcategories.belongsTo(Categorys,{as:"category",foreignKey:"category_id"})
 Categorys.hasMany(Taskcategories,{as:"task",foreignKey:"category_id"})
-
+Categorys.belongsTo(Users,{as:"autor",foreignKey:"user_id"})
+Users.hasMany(Categorys,{as:"category",foreignKey:"user_id"})
 }
 
 

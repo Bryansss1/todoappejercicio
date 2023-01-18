@@ -20,19 +20,19 @@ title:{
 description:{
     type:DataTypes.STRING,
 },
-isComplete:{
+is_complete:{
     type:DataTypes.BOOLEAN,
     defaultValue:false,
-    field:"is_complete",
 },
-userId:{
+user_id:{
 type:DataTypes.INTEGER,
 allowNull:false,
-field:"user_id",
+/* 
 references:{
     model:Users,
     key:"id",
 },
+*/
 }
 })
 

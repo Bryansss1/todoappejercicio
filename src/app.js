@@ -5,13 +5,22 @@ const initModels =require("./models/init.model")
 const Users = require("./models/users.model")
 const { json } = require("sequelize")
 const Task = require("./models/task.model")
+const userRoutes=require("./routes/users.routes")
+const taskRoutes=require("./routes/tasks.routes")
+const authRoutes=require("../src/routes/auth.routes")
+const cors=require("cors")
+require("dotenv").config()
 //crear una instancia de express
 
-
+console.log(process.env.USERNAME)
 
 const app =express()
-const PORT =2000
+const PORT=process.env.PORTT
 app.use(express.json())
+app.use(cors())
+app.use("/api/v1",userRoutes)
+app.use("/api/v1",taskRoutes)
+app.use("/api/v1",authRoutes)
 
 db.authenticate()
 .then( ()=>console.log("autenticacion exitosa")) 
@@ -27,10 +36,18 @@ app.get("/",(req,res)=>{
     res.status(200).json({message:"Bienvenido al servidor"})
 })
 
-
 app.listen(PORT,()=>{
     console.log("Servidor conectando al puerto 2000")
+    
 })
+
+
+
+
+
+
+
+
 
 //definir las rutas de nuestros endpoint(de ahora adelante ep)
 //todas las consultas de usuarios seria //localhost:2000/users
@@ -38,7 +55,15 @@ app.listen(PORT,()=>{
 
 // GET a /users
 
-app.get("/users",async (req,res)=>{
+
+
+
+
+//vamos insertar informacion en nuestra base de datos
+//desde nuestro proyecto de node
+
+
+/*app.get("/users",async (req,res)=>{
 try {
     //vamos a obtener el resultado de consultar a todos los usuarios de la base de datos
     const result=await Users.findAll(); //es igual a un select * from users;
@@ -162,9 +187,4 @@ app.delete("/task/:id",async(req,res)=>{
     } catch (error) {
         console.log(error)
     }
-})
-
-
-
-//vamos insertar informacion en nuestra base de datos
-//desde nuestro proyecto de node
+}) */

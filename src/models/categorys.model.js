@@ -1,6 +1,6 @@
 
 const db= require("../utils/database")
-
+const Users=require("../models/users.model")
 //Tipos de datos de sequelize
 //varchar=> string
 
@@ -19,8 +19,14 @@ const Categorys=db.define("categorys",{
     },
     name:{
         type:DataTypes.STRING,
+        allowNull:false,
         unique:true
     },
+    user_id:{
+        type:DataTypes.INTEGER,
+        allowNull:false,
+        //no es necesario el references ya con el init model y sus relaciones
+    }
 },{
     timestamps:false,
 })

@@ -14,23 +14,23 @@ const Taskcategories=db.define("task_categories",{
         allowNull:false,
         unique:true,
     },
-    categoryId:{
+    category_id:{
         type:DataTypes.INTEGER,
-        field:"category_id",
         allowNull:false,
+        /* 
         references:{
             model:Categorys,
             key:"id",
         }
+        */
     },
-    taskId:{
+    task_id:{
         allowNull:false,
         type:DataTypes.INTEGER,
-        field:"task_id",
-        references:{
+        /*references:{
             model:Task,
             key:"id",
-        }
+        }*/
     }
 },
 {
