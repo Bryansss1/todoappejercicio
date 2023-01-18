@@ -15,7 +15,7 @@ require("dotenv").config()
 console.log(process.env.USERNAME)
 
 const app =express()
-const PORT=process.env.PORTT
+const PORT=process.env.PORT
 app.use(express.json())
 app.use(cors())
 app.use("/api/v1",userRoutes)
@@ -38,7 +38,6 @@ app.get("/",(req,res)=>{
 
 app.listen(PORT,()=>{
     console.log(`Servidor conectando al puerto ${PORT}`)
-    
 })
 
 
